@@ -1,0 +1,11 @@
+{
+  "name": "image-foldarizer",
+  "version": "1.0.0",
+  "description": "Take a flat directory of named image files that have some counter and place then in subdirectories",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
