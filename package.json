@@ -6,8 +6,11 @@
   "main": "index.js",
   "bin": "bin/image-foldarizer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
     "lint": "eslint -c .eslintrc index.js bin/image-foldarizer.js"
+  },
+  "engines": {
+    "node": ">=4.2.0"
   },
   "files": [
     "bin",
@@ -20,10 +23,16 @@
   ],
   "author": {
     "name": "Juga Paazmaya",
+    "email": "paazmaya@yahoo.com",
     "url": "http://paazmaya.fi"
   },
+  "bugs": {
+    "url": "https://github.com/paazmaya/image-foldarizer/issues"
+  },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "optionator": "^0.6.0"
+  },
   "devDependencies": {
     "eslint": "^1.9.0"
   }
