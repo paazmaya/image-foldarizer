@@ -9,4 +9,6 @@
 
 ### License
 
-MIT
+Licensed under [the MIT license](LICENSE).
+
+Copyright (c) [Juga Paazmaya](http://paazmaya.fi) <paazmaya@yahoo.com>
