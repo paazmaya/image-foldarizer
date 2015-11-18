@@ -37,14 +37,12 @@ var optsParser = optionator({
       option: 'help',
       alias: 'h',
       type: 'Boolean',
-      default: false,
       description: 'Help and usage instructions'
     },
     {
       option: 'version',
       alias: 'V',
       type: 'Boolean',
-      default: false,
       description: 'Version number',
       example: '-V'
     },
@@ -52,15 +50,14 @@ var optsParser = optionator({
       option: 'verbose',
       alias: 'v',
       type: 'Boolean',
-      default: false,
       description: 'Verbose output, will print which file is currently being processed'
     },
     {
-      option: 'recursive',
-      alias: 'r',
-      type: 'Boolean',
-      default: false,
-      description: 'Recursive search of images in the previous and current directories'
+      option: 'threshold',
+      alias: 't',
+      type: 'Number',
+      default: '0.83',
+      description: 'Minimum Dice distance to have files going in the same destination directory'
     }
   ]
 });
@@ -72,15 +69,33 @@ try {
 }
 catch (error) {
   console.error(error.message);
-  process.exit();
+  process.exit(1);
 }
 
 if (opts.version) {
   console.log(pkg.version);
-  process.exit();
+  process.exit(0);
 }
 
 if (opts.help) {
   console.log(optsParser.generateHelp());
-  process.exit();
+  process.exit(0);
 }
+
+if (opts._.length !== 1) {
+  console.error('Directory not specified');
+  process.exit(1);
+}
+
+var directory = path.resolve(opts._[0]);
+
+if (!fs.existsSync(directory)) {
+  console.error(`Directory (${directory}) does not exist`);
+  process.exit(1);
+}
+
+// Fire away
+foldarizer(directory, {
+  verbose: typeof opts.verbose === 'boolean' ? opts.verbose : false,
+  threshold: opts.threshold
+});

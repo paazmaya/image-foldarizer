@@ -10,7 +10,13 @@ Please note that the minimum supported version of [Node.js](https://nodejs.org/e
 [sudo] npm install --global image-foldarizer
 ```
 
-### License
+## Command line options
+
+```sh
+image-foldarizer --help
+```
+
+## License
 
 Licensed under [the MIT license](LICENSE).
 
