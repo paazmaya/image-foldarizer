@@ -53,11 +53,10 @@ var optsParser = optionator({
       description: 'Verbose output, will print which file is currently being processed'
     },
     {
-      option: 'threshold',
-      alias: 't',
-      type: 'Number',
-      default: '0.95',
-      description: 'Minimum Dice distance to have files going in the same destination directory'
+      option: 'dry-run',
+      alias: 'n',
+      type: 'Boolean',
+      description: 'Try it out without actually touching anything'
     }
   ]
 });
@@ -97,5 +96,5 @@ if (!fs.existsSync(directory)) {
 // Fire away
 foldarizer(directory, {
   verbose: typeof opts.verbose === 'boolean' ? opts.verbose : false,
-  threshold: opts.threshold
+  dryRun: typeof opts.dryRun === 'boolean' ? opts.dryRun : false
 });

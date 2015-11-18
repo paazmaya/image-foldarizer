@@ -23,6 +23,7 @@ images-and-media/
   Nanbudo-Kisahalli.2010-03-20_34.mp4
   Nanbudo-Kisahalli.2010-03-20_36.mp4
   Nanbudo-Kisahalli.2010-03-20_38.mp4
+  encode.log
 ```
 
 After running `image-foldarizer images-and-media`, the structure will look like this:
@@ -34,10 +35,14 @@ images-and-media/
     Nanbudo-Kisahalli.2010-03-20_34.mp4
     Nanbudo-Kisahalli.2010-03-20_36.mp4
     Nanbudo-Kisahalli.2010-03-20_38.mp4
+  encode.log
 ```
 
 File names themselves are not touched and files that do not match `/_\d+$/` for their basename
 are not moved.
+
+In case the target directory already exists AND has any files in it, the given group will be ignored.
+**This might change in a future release.**
 
 ## Installation
 
@@ -50,6 +55,22 @@ are not moved.
 ```sh
 image-foldarizer --help
 ```
+
+
+## Contributing
+
+First thing to do is to file [an issue](https://github.com/paazmaya/image-foldarizer/issues).
+Then possibly open a Pull Request for solving the given issue.
+ESLint is used for linting the code, please use it by doing:
+
+```sh
+npm install
+npm run lint
+```
+
+## Version history
+
+* `v0.1.0` (2015-11-18) Gets the job simply done, hence first release
 
 ## License
 
