@@ -26,6 +26,10 @@
     "email": "paazmaya@yahoo.com",
     "url": "http://paazmaya.fi"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:paazmaya/image-foldarizer.git"
+  },
   "bugs": {
     "url": "https://github.com/paazmaya/image-foldarizer/issues"
   },

@@ -41,21 +41,54 @@ var getFiles = function _getFiles(directory, options) {
 };
 
 /**
- * @param {string} directory  Root directory
+ * @param {string} directory  Root directory in which images should be
  * @param {object} options    Options {verbose: boolean, threshold: number}
  */
-module.exports = function flatify(directory, options) {
+module.exports = function foldarizer(directory, options) {
 	var files = getFiles(directory, options);
 
 	var groups = {}; // keys are the future directory names
+
 	// Now find something similar in the file names and create directories
 	files.forEach(function eachFile(filepath) {
 		var existing = Object.keys(groups);
 		var base = path.parse(filepath);
+		var nocounter = base.name.replace(/_\d+$/g, '');
+		if (nocounter === base.name) {
+			// Nothing was removed, hence file should be ignored
+			return;
+		}
+
+		if (existing.indexOf(nocounter) !== -1) {
+			// List exists, add to it and move to the next file
+			groups[nocounter].push(filepath);
+		}
+		else {
+			groups[nocounter] = [filepath];
+		}
+
+		/*
+		console.log(base.name, nocounter);
 		var suitable = existing.filter(function filterKeys(key) {
-			return clj_fuzzy.metrics.dice(base.name, key) > options.threshold;
+			return clj_fuzzy.metrics.dice(nocounter, key) > options.threshold;
 		});
+
 		console.log(suitable);
-		groups[base.name] = [filepath];
+		*/
+
+	});
+
+	console.log(groups);
+
+
+	var keys = Object.keys(groups);
+	keys.forEach(function (key) {
+		var targetDir = path.join(directory, key);
+		groups[key].forEach(function (filepath) {
+			var basename = path.basename(filepath),
+				target = path.join(targetDir, basename);
+			console.log(`Moving ${filepath} --> ${target}`);
+			//fs.renameSync(filepath, target);
+		});
 	});
 };

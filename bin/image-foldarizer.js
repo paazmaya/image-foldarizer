@@ -56,7 +56,7 @@ var optsParser = optionator({
       option: 'threshold',
       alias: 't',
       type: 'Number',
-      default: '0.83',
+      default: '0.95',
       description: 'Minimum Dice distance to have files going in the same destination directory'
     }
   ]
