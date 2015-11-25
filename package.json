@@ -6,7 +6,7 @@
   "main": "index.js",
   "bin": "bin/image-foldarizer.js",
   "scripts": {
-    "test": "node tests/index_ tape.js && npm run lint",
+    "test": "node tests/index_tape.js && npm run lint",
     "lint": "eslint -c .eslintrc.json index.js bin/image-foldarizer.js"
   },
   "engines": {
