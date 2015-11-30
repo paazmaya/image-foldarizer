@@ -11,25 +11,26 @@
 'use strict';
 
 const fs = require('fs'),
-	path = require('path');
+  path = require('path');
 
 const optionator = require('optionator');
 
 const foldarizer = require('../index');
 
-var pkg;
+let pkg;
 
 try {
-  var packageJson = fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8');
+  const packageJson = fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8');
+
   pkg = JSON.parse(packageJson);
 }
 catch (error) {
   console.error('Could not read/parse "package.json", quite strange...');
   console.error(error);
-  process.exit();
+  process.exit(1);
 }
 
-var optsParser = optionator({
+const optsParser = optionator({
   prepend: `${pkg.name} [options]`,
   append: `Version ${pkg.version}`,
   options: [
@@ -61,13 +62,14 @@ var optsParser = optionator({
   ]
 });
 
-var opts;
+let opts;
 
 try {
   opts = optsParser.parse(process.argv);
 }
 catch (error) {
   console.error(error.message);
+  console.log(optsParser.generateHelp());
   process.exit(1);
 }
 
@@ -86,7 +88,7 @@ if (opts._.length !== 1) {
   process.exit(1);
 }
 
-var directory = path.resolve(opts._[0]);
+const directory = path.resolve(opts._[0]);
 
 if (!fs.existsSync(directory)) {
   console.error(`Directory (${directory}) does not exist`);

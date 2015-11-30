@@ -14,7 +14,7 @@ const fs = require('fs'),
 const tape = require('tape'),
   foldarizer = require('../index');
 
-tape('a function is exported', function (test) {
+tape('a function is exported', (test) => {
   test.plan(1);
 
   test.equal(typeof foldarizer, 'function');
