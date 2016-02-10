@@ -58,6 +58,12 @@ const optsParser = optionator({
       alias: 'n',
       type: 'Boolean',
       description: 'Try it out without actually touching anything'
+    },
+    {
+      option: 'initial-character',
+      alias: 'i',
+      type: 'Boolean',
+      description: 'Files are only processed if they start with a character, as oppose to number'
     }
   ]
 });
@@ -98,5 +104,6 @@ if (!fs.existsSync(directory)) {
 // Fire away
 foldarizer(directory, {
   verbose: typeof opts.verbose === 'boolean' ? opts.verbose : false,
-  dryRun: typeof opts.dryRun === 'boolean' ? opts.dryRun : false
+  dryRun: typeof opts.dryRun === 'boolean' ? opts.dryRun : false,
+  initChar: typeof opts.initialCharacter === 'boolean' ? opts.initialCharacter : false
 });

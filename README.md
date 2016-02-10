@@ -59,12 +59,13 @@ image-foldarizer --help
 ```sh
 image-foldarizer [options] <directory>
 
-  -h, --help     Help and usage instructions
-  -V, --version  Version number
-  -v, --verbose  Verbose output, will print which file is currently being processed
-  -n, --dry-run  Try it out without actually touching anything
+  -h, --help               Help and usage instructions
+  -V, --version            Version number
+  -v, --verbose            Verbose output, will print which file is currently being processed
+  -n, --dry-run            Try it out without actually touching anything
+  -i, --initial-character  Files are only processed if they start with a character, as oppose to number
 
-Version 0.2.0
+Version 0.3.0
 ```
 
 ## Contributing
@@ -80,6 +81,8 @@ npm run lint
 
 ## Version history
 
+* `v0.3.0` (2016-02-10)
+    - Add option to process only files that start with a character
 * `v0.2.0` (2016-02-10)
     - Arrow functions everywhere
     - Plenty of places where options were not passed forward

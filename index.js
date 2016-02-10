@@ -15,9 +15,10 @@ const INDEX_NOT_FOUND = -1;
 
 /**
  * Read a directory, by returning all files with full filepath
+ * that possibly match the limitation set by initChar option
  *
  * @param {string} directory  Directory
- * @param {object} options    Options {verbose: boolean, dryRun: boolean}
+ * @param {object} options    Options {verbose: boolean, dryRun: boolean, initChar: boolean}
  * @returns {array} List of files
  */
 const getFiles = (directory, options) => {
@@ -26,9 +27,13 @@ const getFiles = (directory, options) => {
   }
 
   const files = fs.readdirSync(directory)
+    .filter((item) => {
+      return options.initChar ? item.match(/^\D/) : true;
+    })
     .map((item) => (
       path.join(directory, item)
-    )).filter((item) => {
+    ))
+    .filter((item) => {
       const stat = fs.statSync(item);
 
       return stat.isFile();
@@ -76,7 +81,7 @@ const getGroups = (files) => {
  * files in it.
  *
  * @param {string} targetDir Target directory to be checked or created
- * @param {object} options   Options {verbose: boolean, dryRun: boolean}
+ * @param {object} options   Options {verbose: boolean, dryRun: boolean, initChar: boolean}
  * @returns {boolean} Go forward or not
  */
 const checkDestination = (targetDir, options) => {
@@ -110,7 +115,7 @@ const checkDestination = (targetDir, options) => {
  *
  * @param {string} directory  Root directory in which images should be
  * @param {array} groups    Groups of files found
- * @param {object} options  Options {verbose: boolean, dryRun: boolean}
+ * @param {object} options  Options {verbose: boolean, dryRun: boolean, initChar: boolean}
  * @returns {object} Group of files with same name
  */
 const handleGroups = (directory, groups, options) => {
@@ -137,13 +142,17 @@ const handleGroups = (directory, groups, options) => {
 
 /**
  * @param {string} directory  Root directory in which images should be
- * @param {object} options    Options {verbose: boolean, dryRun: boolean}
+ * @param {object} options    Options {verbose: boolean, dryRun: boolean, initChar: boolean}
  *
  * @returns {void}
  */
 module.exports = (directory, options) => {
   const files = getFiles(directory, options),
     groups = getGroups(files);
+
+  if (options.verbose) {
+    console.log(`Moving under ${Object.keys(groups).length} groups`);
+  }
 
   handleGroups(directory, groups, options);
 };
