@@ -56,6 +56,16 @@ In case the target directory already exists AND has any files in it, the given g
 image-foldarizer --help
 ```
 
+```sh
+image-foldarizer [options] <directory>
+
+  -h, --help     Help and usage instructions
+  -V, --version  Version number
+  -v, --verbose  Verbose output, will print which file is currently being processed
+  -n, --dry-run  Try it out without actually touching anything
+
+Version 0.2.0
+```
 
 ## Contributing
 
@@ -70,7 +80,11 @@ npm run lint
 
 ## Version history
 
-* `v0.1.0` (2015-11-18) Gets the job simply done, hence first release
+* `v0.2.0` (2016-02-10)
+    - Arrow functions everywhere
+    - Plenty of places where options were not passed forward
+* `v0.1.0` (2015-11-18)
+    - Gets the job simply done, hence first release
 
 ## License
 

@@ -31,7 +31,7 @@ catch (error) {
 }
 
 const optsParser = optionator({
-  prepend: `${pkg.name} [options]`,
+  prepend: `${pkg.name} [options] <directory>`,
   append: `Version ${pkg.version}`,
   options: [
     {

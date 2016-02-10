@@ -20,7 +20,7 @@ const INDEX_NOT_FOUND = -1;
  * @param {object} options    Options {verbose: boolean, dryRun: boolean}
  * @returns {array} List of files
  */
-const getFiles = function _getFiles (directory, options) {
+const getFiles = (directory, options) => {
   if (options.verbose) {
     console.log(`Reading directory ${directory}`);
   }
@@ -41,10 +41,9 @@ const getFiles = function _getFiles (directory, options) {
  * Find candidates for grouping under directories
  *
  * @param {array} files     List of files found
- * @param {object} options  Options {verbose: boolean, dryRun: boolean}
  * @returns {object} Group of files with same name
  */
-const getGroups = function _getGroups (files) {
+const getGroups = (files) => {
   // keys are the future directory names
   const groups = {};
 
@@ -80,7 +79,7 @@ const getGroups = function _getGroups (files) {
  * @param {object} options   Options {verbose: boolean, dryRun: boolean}
  * @returns {boolean} Go forward or not
  */
-const checkDestination = function _checkDestination (targetDir, options) {
+const checkDestination = (targetDir, options) => {
   if (fs.existsSync(targetDir)) {
     const stat = fs.statSync(targetDir);
 
@@ -114,13 +113,13 @@ const checkDestination = function _checkDestination (targetDir, options) {
  * @param {object} options  Options {verbose: boolean, dryRun: boolean}
  * @returns {object} Group of files with same name
  */
-const handleGroups = function _handleGroups (directory, groups, options) {
+const handleGroups = (directory, groups, options) => {
   const keys = Object.keys(groups);
 
   keys.forEach((key) => {
     const targetDir = path.join(directory, key);
 
-    if (checkDestination(targetDir)) {
+    if (checkDestination(targetDir, options)) {
       groups[key].forEach((filepath) => {
         const basename = path.basename(filepath),
           target = path.join(targetDir, basename);
@@ -142,9 +141,9 @@ const handleGroups = function _handleGroups (directory, groups, options) {
  *
  * @returns {void}
  */
-module.exports = function foldarizer (directory, options) {
+module.exports = (directory, options) => {
   const files = getFiles(directory, options),
-    groups = getGroups(files, options);
+    groups = getGroups(files);
 
-  handleGroups(groups, options);
+  handleGroups(directory, groups, options);
 };
