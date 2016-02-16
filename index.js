@@ -30,9 +30,9 @@ const getFiles = (directory, options) => {
     .filter((item) => {
       return options.initChar ? item.match(/^\D/) : true;
     })
-    .map((item) => (
-      path.join(directory, item)
-    ))
+    .map((item) => {
+      return path.join(directory, item);
+    })
     .filter((item) => {
       const stat = fs.statSync(item);
 
