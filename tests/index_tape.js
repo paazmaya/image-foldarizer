@@ -14,8 +14,18 @@ const fs = require('fs'),
 const tape = require('tape'),
   foldarizer = require('../index');
 
-tape('a function is exported', (test) => {
-  test.plan(1);
+tape('a function with two parameters is exported', (test) => {
+  test.plan(2);
 
-  test.equal(typeof foldarizer, 'function');
+  test.equal(typeof foldarizer, 'function', 'is a function');
+  test.equal(foldarizer.length, 2, 'has two parameters');
+});
+
+tape('internal methods are functions', (test) => {
+  test.plan(4);
+
+  test.equal(typeof foldarizer._getFiles, 'function', 'is a function');
+  test.equal(typeof foldarizer._getGroups, 'function', 'is a function');
+  test.equal(typeof foldarizer._checkDestination, 'function', 'is a function');
+  test.equal(typeof foldarizer._handleGroups, 'function', 'is a function');
 });
