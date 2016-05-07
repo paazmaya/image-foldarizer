@@ -130,7 +130,7 @@ const handleGroups = (directory, groups, options) => {
           target = path.join(targetDir, basename);
 
         if (options.verbose) {
-          console.log(`Moving ${filepath} --> ${target}`);
+          console.log(`Moving ${path.relative(directory, filepath)} --> ${path.relative(directory, target)}`);
         }
         if (!options.dryRun) {
           fs.renameSync(filepath, target);
@@ -156,3 +156,9 @@ module.exports = (directory, options) => {
 
   handleGroups(directory, groups, options);
 };
+
+// Export methods for testing
+module.exports._getFiles = getFiles;
+module.exports._getGroups = getGroups;
+module.exports._checkDestination = checkDestination;
+module.exports._handleGroups = handleGroups;
