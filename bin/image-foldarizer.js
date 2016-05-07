@@ -20,7 +20,7 @@ const foldarizer = require('../index');
 let pkg;
 
 try {
-  const packageJson = fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8');
+  const packageJson = fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8');
 
   pkg = JSON.parse(packageJson);
 }
@@ -63,7 +63,7 @@ const optsParser = optionator({
       option: 'initial-character',
       alias: 'i',
       type: 'Boolean',
-      description: 'Files are only processed if they start with a character, as oppose to number'
+      description: 'Files are only processed if they start with a character, as oppose to a number'
     }
   ]
 });
