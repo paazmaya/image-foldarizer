@@ -2,6 +2,9 @@
 
 > Take a flat directory of named image files that have some counter and place then in subdirectories
 
+[![Build Status](https://travis-ci.org/paazmaya/image-foldarizer.svg?branch=master)](https://travis-ci.org/paazmaya/image-foldarizer)
+[![codecov](https://codecov.io/gh/paazmaya/image-foldarizer/branch/master/graph/badge.svg)](https://codecov.io/gh/paazmaya/image-foldarizer)
+
 Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `4.2.0`.
 
 ## Purpose
