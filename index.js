@@ -18,7 +18,11 @@ const INDEX_NOT_FOUND = -1;
  * that possibly match the limitation set by initChar option
  *
  * @param {string} directory  Directory
- * @param {object} options    Options {verbose: boolean, dryRun: boolean, initChar: boolean}
+ * @param {object} options    Options that are all boolean values and false by default
+ * @param {boolean} options.verbose Print out which file is being processed
+ * @param {boolean} options.dryRun  Do not touch files, just show what would happen
+ * @param {boolean} options.initChar Initial character in the filename needs to be a character
+ *
  * @returns {array} List of files
  */
 const getFiles = (directory, options) => {
@@ -81,7 +85,11 @@ const getGroups = (files) => {
  * files in it.
  *
  * @param {string} targetDir Target directory to be checked or created
- * @param {object} options   Options {verbose: boolean, dryRun: boolean, initChar: boolean}
+ * @param {object} options    Options that are all boolean values and false by default
+ * @param {boolean} options.verbose Print out which file is being processed
+ * @param {boolean} options.dryRun  Do not touch files, just show what would happen
+ * @param {boolean} options.initChar Initial character in the filename needs to be a character
+ *
  * @returns {boolean} Go forward or not
  */
 const checkDestination = (targetDir, options) => {
@@ -114,12 +122,18 @@ const checkDestination = (targetDir, options) => {
  * Move files to subdirectories based on the group structure
  *
  * @param {string} directory  Root directory in which images should be
- * @param {array} groups    Groups of files found
- * @param {object} options  Options {verbose: boolean, dryRun: boolean, initChar: boolean}
- * @returns {object} Group of files with same name
+ * @param {array} groups      Groups of files found
+ * @param {object} options    Options that are all boolean values and false by default
+ * @param {boolean} options.verbose Print out which file is being processed
+ * @param {boolean} options.dryRun  Do not touch files, just show what would happen
+ * @param {boolean} options.initChar Initial character in the filename needs to be a character
+ *
+ * @returns {number} Number of files moved
  */
 const handleGroups = (directory, groups, options) => {
   const keys = Object.keys(groups);
+
+  let countFiles = 0;
 
   keys.forEach((key) => {
     const targetDir = path.join(directory, key);
@@ -130,19 +144,27 @@ const handleGroups = (directory, groups, options) => {
           target = path.join(targetDir, basename);
 
         if (options.verbose) {
-          console.log(`Moving ${path.relative(directory, filepath)} --> ${path.relative(directory, target)}`);
+          const inPath = path.relative(directory, filepath),
+            outPath = path.relative(directory, target);
+          console.log(`Moving ${inPath} --> ${outPath}`);
         }
         if (!options.dryRun) {
           fs.renameSync(filepath, target);
+          ++countFiles;
         }
       });
     }
   });
+
+  return countFiles;
 };
 
 /**
  * @param {string} directory  Root directory in which images should be
- * @param {object} options    Options {verbose: boolean, dryRun: boolean, initChar: boolean}
+ * @param {object} options    Options that are all boolean values and false by default
+ * @param {boolean} options.verbose Print out which file is being processed
+ * @param {boolean} options.dryRun  Do not touch files, just show what would happen
+ * @param {boolean} options.initChar Initial character in the filename needs to be a character
  *
  * @returns {void}
  */
@@ -154,7 +176,11 @@ module.exports = (directory, options) => {
     console.log(`Moving under ${Object.keys(groups).length} groups`);
   }
 
-  handleGroups(directory, groups, options);
+  const countFiles = handleGroups(directory, groups, options);
+
+  if (options.verbose) {
+    console.log(`Moved total of ${countFiles} files`);
+  }
 };
 
 // Export methods for testing

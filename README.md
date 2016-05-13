@@ -84,6 +84,8 @@ npm run lint
 
 ## Version history
 
+* `v0.5.0` (2016-05-)
+    - Show a total number of renamed/moved files at the end of processing #5
 * `v0.4.0` (2016-05-07)
     - Using shared ESLint configuration #3
     - Show relative path instead of absolute path when verbose #4
