@@ -1,6 +1,6 @@
 {
   "name": "image-foldarizer",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Take a flat directory of named image files that have some counter and place then in subdirectories",
   "homepage": "https://github.com/paazmaya/image-foldarizer",
   "main": "index.js",

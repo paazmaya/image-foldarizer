@@ -85,7 +85,7 @@ npm run lint
 
 ## Version history
 
-* `v0.5.0` (2016-05-)
+* `v0.5.0` (2016-05-13)
     - Show a total number of renamed/moved files at the end of processing #5
     - Option to lowercase the resulting file extension, defaults to keep as is #6
 * `v0.4.0` (2016-05-07)
