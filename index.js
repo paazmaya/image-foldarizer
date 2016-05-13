@@ -88,6 +88,7 @@ const getGroups = (files) => {
  * @param {object} options    Options that are all boolean values and false by default
  * @param {boolean} options.verbose Print out which file is being processed
  * @param {boolean} options.dryRun  Do not touch files, just show what would happen
+ * @param {boolean} options.lowercaseSuffix   Lowercase the resulting file suffix
  * @param {boolean} options.initChar Initial character in the filename needs to be a character
  *
  * @returns {boolean} Go forward or not
@@ -126,6 +127,7 @@ const checkDestination = (targetDir, options) => {
  * @param {object} options    Options that are all boolean values and false by default
  * @param {boolean} options.verbose Print out which file is being processed
  * @param {boolean} options.dryRun  Do not touch files, just show what would happen
+ * @param {boolean} options.lowercaseSuffix   Lowercase the resulting file suffix
  * @param {boolean} options.initChar Initial character in the filename needs to be a character
  *
  * @returns {number} Number of files moved
@@ -140,8 +142,9 @@ const handleGroups = (directory, groups, options) => {
 
     if (checkDestination(targetDir, options)) {
       groups[key].forEach((filepath) => {
-        const basename = path.basename(filepath),
-          target = path.join(targetDir, basename);
+        const namemeta = path.parse(filepath),
+          ext = options.lowercaseSuffix ? namemeta.ext.toLowerCase() : namemeta.ext,
+          target = path.join(targetDir, namemeta.name + ext);
 
         if (options.verbose) {
           const inPath = path.relative(directory, filepath),
@@ -164,6 +167,7 @@ const handleGroups = (directory, groups, options) => {
  * @param {object} options    Options that are all boolean values and false by default
  * @param {boolean} options.verbose Print out which file is being processed
  * @param {boolean} options.dryRun  Do not touch files, just show what would happen
+ * @param {boolean} options.lowercaseSuffix   Lowercase the resulting file suffix
  * @param {boolean} options.initChar Initial character in the filename needs to be a character
  *
  * @returns {void}

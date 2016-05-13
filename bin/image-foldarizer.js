@@ -60,6 +60,12 @@ const optsParser = optionator({
       description: 'Try it out without actually touching anything'
     },
     {
+      option: 'lowercase-suffix',
+      alias: 'l',
+      type: 'Boolean',
+      description: 'Lowercase the resulting file suffixes, or use as is by default'
+    },
+    {
       option: 'initial-character',
       alias: 'i',
       type: 'Boolean',
@@ -105,5 +111,6 @@ if (!fs.existsSync(directory)) {
 foldarizer(directory, {
   verbose: typeof opts.verbose === 'boolean' ? opts.verbose : false,
   dryRun: typeof opts.dryRun === 'boolean' ? opts.dryRun : false,
+  lowercaseSuffix: typeof opts.lowercaseSuffix === 'boolean' ? opts.lowercaseSuffix : false,
   initChar: typeof opts.initialCharacter === 'boolean' ? opts.initialCharacter : false
 });

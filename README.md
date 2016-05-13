@@ -66,9 +66,10 @@ image-foldarizer [options] <directory>
   -V, --version            Version number
   -v, --verbose            Verbose output, will print which file is currently being processed
   -n, --dry-run            Try it out without actually touching anything
+  -l, --lowercase-suffix   Lowercase the resulting file suffixes, or use as is by default
   -i, --initial-character  Files are only processed if they start with a character, as oppose to a number
 
-Version 0.4.0
+Version 0.5.0
 ```
 
 ## Contributing
@@ -86,6 +87,7 @@ npm run lint
 
 * `v0.5.0` (2016-05-)
     - Show a total number of renamed/moved files at the end of processing #5
+    - Option to lowercase the resulting file extension, defaults to keep as is #6
 * `v0.4.0` (2016-05-07)
     - Using shared ESLint configuration #3
     - Show relative path instead of absolute path when verbose #4
