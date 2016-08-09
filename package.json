@@ -1,14 +1,14 @@
 {
   "name": "image-foldarizer",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Take a flat directory of named image files that have some counter and place then in subdirectories",
   "homepage": "https://github.com/paazmaya/image-foldarizer",
   "main": "index.js",
   "bin": "bin/image-foldarizer.js",
   "scripts": {
-    "test": "npm run lint && node tests/index_tape.js",
-    "coverage": "istanbul cover tests/index_tape.js --report lcovonly && codecov",
-    "lint": "eslint -c .eslintrc.json index.js bin/image-foldarizer.js"
+    "lint": "eslint -c .eslintrc.json index.js bin/image-foldarizer.js",
+    "test": "nyc tape tests/*_test.js && rm -rf tmp",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "engines": {
     "node": ">=4.2.0"
@@ -47,7 +47,7 @@
     "codecov": "^1.0.1",
     "eslint": "^3.2.2",
     "eslint-config-paazmaya": "^2.3.1",
-    "istanbul": "^0.4.4",
+    "nyc": "^7.1.0",
     "tape": "^4.6.0"
   }
 }

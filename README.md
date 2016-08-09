@@ -77,15 +77,24 @@ Version 0.5.0
 
 First thing to do is to file [an issue](https://github.com/paazmaya/image-foldarizer/issues).
 Then possibly open a Pull Request for solving the given issue.
-ESLint is used for linting the code, please use it by doing:
+[ESLint](http://eslint.org/) is used for linting the code, please use it by doing:
 
 ```sh
 npm install
 npm run lint
 ```
 
+Unit tests are written with [`tape`](https://github.com/substack/tape) and can be executed with `npm test`.
+Code coverage is inspected with [`nyc`](https://github.com/istanbuljs/nyc) and
+can be executed with `npm run coverage` after running `npm test`.
+Please make sure it is over 90% at all times.
+
 ## Version history
 
+* `v0.5.1` (2016-08-09)
+    - Move code coverage from `instanbul` to `nyc`
+    - Test also in Windows, at [AppVeyor](https://ci.appveyor.com/project/paazmaya/image-foldarizer)
+    - Testing command line interface
 * `v0.5.0` (2016-05-13)
     - Show a total number of renamed/moved files at the end of processing #5
     - Option to lowercase the resulting file extension, defaults to keep as is #6
