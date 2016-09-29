@@ -110,8 +110,16 @@ if (!fs.existsSync(directory)) {
 
 // Fire away
 foldarizer(directory, {
-  verbose: typeof opts.verbose === 'boolean' ? opts.verbose : false,
-  dryRun: typeof opts.dryRun === 'boolean' ? opts.dryRun : false,
-  lowercaseSuffix: typeof opts.lowercaseSuffix === 'boolean' ? opts.lowercaseSuffix : false,
-  initChar: typeof opts.initialCharacter === 'boolean' ? opts.initialCharacter : false
+  verbose: typeof opts.verbose === 'boolean' ?
+    opts.verbose :
+    false,
+  dryRun: typeof opts.dryRun === 'boolean' ?
+    opts.dryRun :
+    false,
+  lowercaseSuffix: typeof opts.lowercaseSuffix === 'boolean' ?
+    opts.lowercaseSuffix :
+    false,
+  initChar: typeof opts.initialCharacter === 'boolean' ?
+    opts.initialCharacter :
+    false
 });

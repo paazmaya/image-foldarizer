@@ -32,7 +32,9 @@ const getFiles = (directory, options) => {
 
   const files = fs.readdirSync(directory)
     .filter((item) => {
-      return options.initChar ? item.match(/^\D/) : true;
+      return options.initChar ?
+        item.match(/^\D/) :
+        true;
     })
     .map((item) => {
       return path.join(directory, item);
@@ -143,7 +145,9 @@ const handleGroups = (directory, groups, options) => {
     if (checkDestination(targetDir, options)) {
       groups[key].forEach((filepath) => {
         const namemeta = path.parse(filepath),
-          ext = options.lowercaseSuffix ? namemeta.ext.toLowerCase() : namemeta.ext,
+          ext = options.lowercaseSuffix ?
+            namemeta.ext.toLowerCase() :
+            namemeta.ext,
           target = path.join(targetDir, namemeta.name + ext);
 
         if (options.verbose) {
