@@ -6,7 +6,7 @@
 [![Windows build status](https://ci.appveyor.com/api/projects/status/d61hp15tmxnk6cfj/branch/master?svg=true)](https://ci.appveyor.com/project/paazmaya/image-foldarizer/branch/master)
 [![codecov](https://codecov.io/gh/paazmaya/image-foldarizer/branch/master/graph/badge.svg)](https://codecov.io/gh/paazmaya/image-foldarizer)
 
-Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `4.2.0`.
+Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `6.9.5` (LTS).
 
 ## Purpose
 
