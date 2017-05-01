@@ -43,7 +43,6 @@ tape('cli should output help when requested', (test) => {
 
 });
 
-
 tape('cli should complain when package.json is gone', (test) => {
   test.plan(1);
 
@@ -68,3 +67,11 @@ tape('cli should complain when non existing option used', (test) => {
 
 });
 
+tape('cli does not move files when dry-run', (test) => {
+  test.plan(1);
+
+  execFile('node', [pkg.bin, '-vln', path.join(__dirname, 'fixtures')], null, (err, stdout, stderr) => {
+    test.ok(stdout.trim().indexOf('Would have moved total of ') !== -1);
+  });
+
+});

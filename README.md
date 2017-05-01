@@ -91,23 +91,26 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
+* `v0.6.0` (2017-05-01)
+  - Print the number of possibly affected files, also when dry-run #8
+  - Minimum Node.js LTS version requirement increased from `4.2.0` to `6.9.5`
 * `v0.5.1` (2016-08-09)
-    - Move code coverage from `instanbul` to `nyc`
-    - Test also in Windows, at [AppVeyor](https://ci.appveyor.com/project/paazmaya/image-foldarizer)
-    - Testing command line interface
+  - Move code coverage from `instanbul` to `nyc`
+  - Test also in Windows, at [AppVeyor](https://ci.appveyor.com/project/paazmaya/image-foldarizer)
+  - Testing command line interface
 * `v0.5.0` (2016-05-13)
-    - Show a total number of renamed/moved files at the end of processing #5
-    - Option to lowercase the resulting file extension, defaults to keep as is #6
+  - Show a total number of renamed/moved files at the end of processing #5
+  - Option to lowercase the resulting file extension, defaults to keep as is #6
 * `v0.4.0` (2016-05-07)
-    - Using shared ESLint configuration #3
-    - Show relative path instead of absolute path when verbose #4
+  - Using shared ESLint configuration #3
+  - Show relative path instead of absolute path when verbose #4
 * `v0.3.0` (2016-02-10)
-    - Add option to process only files that start with a character
+  - Add option to process only files that start with a character
 * `v0.2.0` (2016-02-10)
-    - Arrow functions everywhere
-    - Plenty of places where options were not passed forward
+  - Arrow functions everywhere
+  - Plenty of places where options were not passed forward
 * `v0.1.0` (2015-11-18)
-    - Gets the job simply done, hence first release
+  - Gets the job simply done, hence first release
 
 ## License
 

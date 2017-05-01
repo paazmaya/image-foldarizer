@@ -155,10 +155,12 @@ const handleGroups = (directory, groups, options) => {
             outPath = path.relative(directory, target);
           console.log(`Moving ${inPath} --> ${outPath}`);
         }
+
         if (!options.dryRun) {
           fs.renameSync(filepath, target);
-          ++countFiles;
         }
+
+        ++countFiles;
       });
     }
   });
@@ -187,7 +189,12 @@ module.exports = (directory, options) => {
   const countFiles = handleGroups(directory, groups, options);
 
   if (options.verbose) {
-    console.log(`Moved total of ${countFiles} files`);
+    if (options.dryRun) {
+      console.log(`Would have moved total of ${countFiles} files, but did not due to dry-run`);
+    }
+    else {
+      console.log(`Moved total of ${countFiles} files`);
+    }
   }
 };
 
