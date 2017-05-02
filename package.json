@@ -6,7 +6,7 @@
   "main": "index.js",
   "bin": "bin/image-foldarizer.js",
   "scripts": {
-    "lint": "eslint -c .eslintrc.json index.js bin/image-foldarizer.js",
+    "lint": "eslint index.js bin/image-foldarizer.js",
     "test": "nyc --exclude tests tape tests/*_test.js && rm -rf tmp",
     "coverage": "nyc --exclude tests report --reporter=text-lcov > coverage.lcov && codecov"
   },
