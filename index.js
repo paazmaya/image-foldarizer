@@ -55,7 +55,7 @@ const getFiles = (directory, options) => {
  * @returns {object} Group of files with same name
  */
 const getGroups = (files) => {
-  // keys are the future directory names
+  // Keys are the future directory names
   const groups = {};
 
   // Now find something similar in the file names and create directories
