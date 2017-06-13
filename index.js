@@ -11,42 +11,9 @@
 const fs = require('fs'),
   path = require('path');
 
+const getFiles = require('./lib/get-files');
+
 const INDEX_NOT_FOUND = -1;
-
-/**
- * Read a directory, by returning all files with full filepath
- * that possibly match the limitation set by initChar option
- *
- * @param {string} directory  Directory
- * @param {object} options    Options that are all boolean values and false by default
- * @param {boolean} options.verbose Print out which file is being processed
- * @param {boolean} options.dryRun  Do not touch files, just show what would happen
- * @param {boolean} options.initChar Initial character in the filename needs to be a character
- *
- * @returns {array} List of files
- */
-const getFiles = (directory, options) => {
-  if (options.verbose) {
-    console.log(`Reading directory ${directory}`);
-  }
-
-  const files = fs.readdirSync(directory)
-    .filter((item) => {
-      return options.initChar ?
-        item.match(/^\D/) :
-        true;
-    })
-    .map((item) => {
-      return path.join(directory, item);
-    })
-    .filter((item) => {
-      const stat = fs.statSync(item);
-
-      return stat.isFile();
-    });
-
-  return files;
-};
 
 /**
  * Find candidates for grouping under directories
@@ -199,7 +166,6 @@ module.exports = (directory, options) => {
 };
 
 // Export methods for testing
-module.exports._getFiles = getFiles;
 module.exports._getGroups = getGroups;
 module.exports._checkDestination = checkDestination;
 module.exports._handleGroups = handleGroups;
