@@ -63,29 +63,34 @@ const getGroups = (files) => {
  * @returns {boolean} Go forward or not
  */
 const checkDestination = (targetDir, options) => {
-  if (fs.existsSync(targetDir)) {
-    const stat = fs.statSync(targetDir);
+  let stat;
 
-    if (stat.isDirectory()) {
-      // Target directory exists, allow cancelling by user
-      const subfiles = fs.readdirSync(targetDir);
-
-      if (options.verbose) {
-        console.log(`Target directory exists and is a directory which has files of total ${subfiles.length}`);
-      }
-      if (subfiles.length > 0) {
-        return false;
-      }
+  try {
+    stat = fs.statSync(targetDir);
+  }
+  catch (error) {
+    if (!options.dryRun) {
+      fs.mkdirSync(targetDir);
     }
-    else {
+
+    return true;
+  }
+
+  if (stat.isDirectory()) {
+    // Target directory exists, allow cancelling by user
+    const subfiles = fs.readdirSync(targetDir);
+
+    if (options.verbose) {
+      console.log(`Target directory exists and is a directory which has files of total ${subfiles.length}`);
+    }
+    if (subfiles.length > 0) {
       return false;
     }
-  }
-  else if (!options.dryRun) {
-    fs.mkdirSync(targetDir);
+
+    return true;
   }
 
-  return true;
+  return false;
 };
 
 /**
