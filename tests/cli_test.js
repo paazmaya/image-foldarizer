@@ -67,6 +67,15 @@ tape('cli should complain when non existing option used', (test) => {
 
 });
 
+tape('cli should complain when directory does not exist', (test) => {
+  test.plan(1);
+
+  execFile('node', [pkg.bin, 'not-here'], null, (err, stdout, stderr) => {
+    test.ok(stderr.trim().indexOf('Directory "') === 0, 'Complaint seen');
+  });
+
+});
+
 tape('cli does not move files when dry-run', (test) => {
   test.plan(1);
 

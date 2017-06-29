@@ -104,7 +104,7 @@ if (opts._.length !== 1) {
 const directory = path.resolve(opts._[0]);
 
 if (!fs.existsSync(directory)) {
-  console.error(`Directory (${directory}) does not exist`);
+  console.error(`Directory "${directory}" does not exist`);
   process.exit(1);
 }
 
