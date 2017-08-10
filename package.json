@@ -6,7 +6,7 @@
   "main": "index.js",
   "bin": "bin/image-foldarizer.js",
   "scripts": {
-    "lint": "eslint index.js bin/image-foldarizer.js",
+    "lint": "eslint index.js bin lib",
     "test": "nyc --exclude tests tape tests/*_test.js tests/lib/*_test.js && rm -rf tmp",
     "coverage": "nyc --exclude tests report --reporter=text-lcov > coverage.lcov && codecov"
   },
@@ -45,10 +45,10 @@
     "optionator": "^0.8.2"
   },
   "devDependencies": {
-    "codecov": "^2.2.0",
-    "eslint": "^4.2.0",
-    "eslint-config-paazmaya": "^4.0.0",
-    "nyc": "^11.0.3",
-    "tape": "^4.7.0"
+    "codecov": "^2.3.0",
+    "eslint": "^4.4.1",
+    "eslint-config-paazmaya": "^4.1.0",
+    "nyc": "^11.1.0",
+    "tape": "^4.8.0"
   }
 }
