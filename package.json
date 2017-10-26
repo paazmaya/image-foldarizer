@@ -45,7 +45,7 @@
     "optionator": "^0.8.2"
   },
   "devDependencies": {
-    "codecov": "^2.3.0",
+    "codecov": "^3.0.0",
     "eslint": "^4.5.0",
     "eslint-config-paazmaya": "^4.1.0",
     "nyc": "^11.1.0",
