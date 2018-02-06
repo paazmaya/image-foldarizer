@@ -69,9 +69,10 @@ image-foldarizer [options] <directory>
   -v, --verbose            Verbose output, will print which file is currently being processed
   -n, --dry-run            Try it out without actually touching anything
   -l, --lowercase-suffix   Lowercase the resulting file suffixes, or use as is by default
-  -i, --initial-character  Files are only processed if they start with a character, as oppose to a number
+  -i, --initial-character  Files are only processed if they start with a character, as oppose to a
+                           number
 
-Version 0.5.0
+Version 0.7.0
 ```
 
 ## Contributing
@@ -92,6 +93,10 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
+* `v0.7.0` (2018-02-06)
+  - Tested against Node.js v8
+  - Dependencies updated
+  - Much more unit test coverage #1
 * `v0.6.0` (2017-05-01)
   - Print the number of possibly affected files, also when dry-run #8
   - Minimum Node.js LTS version requirement increased from `4.2.0` to `6.9.5`
