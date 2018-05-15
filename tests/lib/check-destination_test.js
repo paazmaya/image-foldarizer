@@ -59,13 +59,28 @@ tape('checkDestination does not like when directory exists and is not empty', (t
   test.plan(1);
 
   const options = {
-    verbose: false,
+    verbose: true,
     dryRun: false
   };
   const directory = path.join(__dirname, '..', 'fixtures');
 
   const result = checkDestination(directory, options);
   test.notOk(result);
+});
+
+tape('checkDestination likes when directory is empty', (test) => {
+  test.plan(1);
+  const directory = path.join(__dirname, 'temporary-empty-dir');
+  fs.mkdirSync(directory);
+
+  const options = {
+    verbose: true,
+    dryRun: false
+  };
+
+  const result = checkDestination(directory, options);
+  test.ok(result);
+  fs.rmdirSync(directory);
 });
 
 tape('checkDestination does not like when destination is not directory', (test) => {

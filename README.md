@@ -72,7 +72,7 @@ image-foldarizer [options] <directory>
   -i, --initial-character  Files are only processed if they start with a character, as oppose to a
                            number
 
-Version 0.7.0
+Version 0.8.0
 ```
 
 ## Contributing
@@ -93,6 +93,8 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
+* `v0.8.0` (2018-06-)
+  - Minimum Node.js LTS version requirement increased from `6.9.5` to `8.11.1`
 * `v0.7.0` (2018-02-06)
   - Tested against Node.js v8
   - Dependencies updated
