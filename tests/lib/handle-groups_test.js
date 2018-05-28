@@ -46,3 +46,45 @@ tape('handleGroups increments when group is not existing and dry running', (test
 
   test.equal(result, 1);
 });
+
+tape('handleGroups would moves files when needed', (test) => {
+  test.plan(1);
+
+  const directory = __dirname;
+  const groups = {
+    'Lynx-in-a-Zoo': [
+      'Lynx-in-a-Zoo_1.JPG',
+      'Lynx-in-a-Zoo_2.jpg',
+      'Lynx-in-a-Zoo_3.jpg'
+    ]
+  };
+  const options = {
+    lowercaseSuffix: true,
+    verbose: true,
+    dryRun: true
+  };
+
+  const result = handleGroups(directory, groups, options);
+
+  test.equal(result, 3);
+});
+
+tape('handleGroups cannot really move non existing files', (test) => {
+  test.plan(1);
+
+  const directory = __dirname;
+  const groups = {
+    'Lynx-in-a-Zoo': [
+      'Lynx-in-a-Zoo_1.JPG',
+      'Lynx-in-a-Zoo_2.jpg',
+      'Lynx-in-a-Zoo_3.jpg'
+    ]
+  };
+  const options = {
+    lowercaseSuffix: true,
+    verbose: true,
+    dryRun: false
+  };
+
+  test.throws(handleGroups(directory, groups, options));
+});

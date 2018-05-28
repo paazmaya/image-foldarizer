@@ -48,7 +48,7 @@
     "codecov": "^3.0.2",
     "eslint": "^4.19.1",
     "eslint-config-paazmaya": "^4.3.0",
-    "nyc": "^11.7.3",
+    "nyc": "^11.8.0",
     "tape": "^4.9.0"
   }
 }
