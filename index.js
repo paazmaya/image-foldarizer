@@ -28,7 +28,7 @@ const getGroups = (files) => {
   // Now find something similar in the file names and create directories
   files.forEach((filepath) => {
     const base = path.parse(filepath),
-      nocounter = base.name.replace(/_\d+$/g, '');
+      nocounter = base.name.replace(/_\d+$/gu, '');
 
     if (nocounter === base.name) {
       // Nothing was removed, hence file should be ignored
