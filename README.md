@@ -6,6 +6,7 @@
 [![Windows build status](https://ci.appveyor.com/api/projects/status/d61hp15tmxnk6cfj/branch/master?svg=true)](https://ci.appveyor.com/project/paazmaya/image-foldarizer/branch/master)
 [![codecov](https://codecov.io/gh/paazmaya/image-foldarizer/branch/master/graph/badge.svg)](https://codecov.io/gh/paazmaya/image-foldarizer)
 [![dependencies Status](https://david-dm.org/paazmaya/image-foldarizer/status.svg)](https://david-dm.org/paazmaya/image-foldarizer)
+[![Job Status](https://inspecode.rocro.com/badges/github.com/paazmaya/image-foldarizer/status?token=uM03BxIH0V_5grwbgOdsfCjKi7nmD1bgXhdHQzuOQDI)](https://inspecode.rocro.com/jobs/github.com/paazmaya/image-foldarizer/latest?completed=true)
 
 Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `8.11.1`, which is [the active Long Term Support (LTS) version](https://github.com/nodejs/Release#release-schedule).
 
