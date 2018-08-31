@@ -86,5 +86,11 @@ tape('handleGroups cannot really move non existing files', (test) => {
     dryRun: false
   };
 
-  test.throws(handleGroups(directory, groups, options));
+  try {
+    handleGroups(directory, groups, options);
+    test.fail('Did not throw');
+  }
+  catch (error) {
+    test.pass('Threw an error');
+  }
 });
