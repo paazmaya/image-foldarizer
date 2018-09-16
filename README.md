@@ -7,6 +7,7 @@
 [![codecov](https://codecov.io/gh/paazmaya/image-foldarizer/branch/master/graph/badge.svg)](https://codecov.io/gh/paazmaya/image-foldarizer)
 [![dependencies Status](https://david-dm.org/paazmaya/image-foldarizer/status.svg)](https://david-dm.org/paazmaya/image-foldarizer)
 [![Report](https://inspecode.rocro.com/badges/github.com/paazmaya/image-foldarizer/report?token=uM03BxIH0V_5grwbgOdsfCjKi7nmD1bgXhdHQzuOQDI&branch=master)](https://inspecode.rocro.com/reports/github.com/paazmaya/image-foldarizer/branch/master/summary)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpaazmaya%2Fimage-foldarizer.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpaazmaya%2Fimage-foldarizer?ref=badge_shield)
 
 Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `8.11.1`, which is [the active Long Term Support (LTS) version](https://github.com/nodejs/Release#release-schedule).
 
@@ -126,3 +127,5 @@ Please make sure it is over 90% at all times.
 Licensed under [the MIT license](LICENSE).
 
 Copyright (c) [Juga Paazmaya](https://paazmaya.fi) <paazmaya@yahoo.com>
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpaazmaya%2Fimage-foldarizer.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpaazmaya%2Fimage-foldarizer?ref=badge_large)
