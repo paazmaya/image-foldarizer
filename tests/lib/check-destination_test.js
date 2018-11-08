@@ -38,7 +38,7 @@ tape('checkDestination creates directory when does not exist', (test) => {
   test.plan(2);
 
   const options = {
-    verbose: false,
+    verbose: true,
     dryRun: false
   };
   const directory = path.join(__dirname, '..', 'does-not-exist');
@@ -74,7 +74,7 @@ tape('checkDestination likes when directory is empty', (test) => {
   fs.mkdirSync(directory);
 
   const options = {
-    verbose: true,
+    verbose: false,
     dryRun: false
   };
 
