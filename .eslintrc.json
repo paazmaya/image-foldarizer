@@ -1,6 +1,7 @@
 {
   "extends": "paazmaya",
   "rules": {
+    "max-lines-per-function": ["warn", 24],
     "no-console": 0,
     "no-process-exit": 0
   }

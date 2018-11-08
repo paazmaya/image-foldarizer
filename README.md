@@ -95,7 +95,7 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
-* `v0.8.0` (2018-06-)
+* `v0.8.0` (2018-11-09)
   - Minimum Node.js LTS version requirement increased from `6.9.5` to `8.11.1`
 * `v0.7.0` (2018-02-06)
   - Tested against Node.js v8
