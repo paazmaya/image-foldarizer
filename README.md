@@ -51,6 +51,8 @@ are not moved.
 In case the target directory already exists AND has any files in it, the given group will be ignored.
 **This might change in a future release.**
 
+See also [`image-flatify`](https://github.com/paazmaya/image-flatify) for organising images with their creation date.
+
 ## Installation
 
 ```sh
