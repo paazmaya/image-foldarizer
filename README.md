@@ -95,6 +95,7 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
+  - Use [`npm-shrinkwrap.json`](https://docs.npmjs.com/files/shrinkwrap.json) for locking the working set of 3rd party dependencies
 * `v1.0.0` (2018-11-09)
   - Minimum Node.js LTS version requirement increased from `6.9.5` to `8.11.1`
   - Managed to get code coverage of unit testing over 99%, meaning ready to say this is first full release

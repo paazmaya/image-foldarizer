@@ -11,12 +11,14 @@
     "coverage": "nyc --all --exclude tests report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "engines": {
-    "node": ">=8.11.1"
+    "node": ">=8.11.1",
+    "npm": ">=5.0.0"
   },
   "files": [
     "bin",
     "lib",
     "index.js",
+    "npm-shrinkwrap.json",
     "package.json",
     "LICENSE"
   ],
