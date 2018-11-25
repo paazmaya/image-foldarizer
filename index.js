@@ -17,6 +17,7 @@ const getFiles = require('./lib/get-files'),
  * @param {object} options    Options that are all boolean values and false by default
  * @param {boolean} options.verbose Print out which file is being processed
  * @param {boolean} options.dryRun  Do not touch files, just show what would happen
+ * @param {boolean} options.skipExisting  Skip when the group directory already exists
  * @param {boolean} options.lowercaseSuffix   Lowercase the resulting file suffix
  * @param {boolean} options.initChar Initial character in the filename needs to be a character
  *

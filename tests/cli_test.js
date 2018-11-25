@@ -97,7 +97,7 @@ tape('cli does not move files when dry-run and not verbose', (test) => {
 tape('cli moves nothing since nothing found', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-li', path.join(__dirname, '..')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin, '-liE', path.join(__dirname, '..')], null, (err, stdout, stderr) => {
     test.equals(stdout.trim().length, 0);
   });
 

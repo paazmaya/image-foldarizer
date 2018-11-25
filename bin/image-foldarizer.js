@@ -60,6 +60,12 @@ const optsParser = optionator({
       description: 'Try it out without actually touching anything'
     },
     {
+      option: 'skip-existing',
+      alias: 'E',
+      type: 'Boolean',
+      description: 'Skip when the group directory already exists'
+    },
+    {
       option: 'lowercase-suffix',
       alias: 'l',
       type: 'Boolean',
@@ -119,6 +125,9 @@ foldarizer(directory, {
     false,
   dryRun: typeof opts.dryRun === 'boolean' ?
     opts.dryRun :
+    false,
+  skipExisting: typeof opts.skipExisting === 'boolean' ?
+    opts.skipExisting :
     false,
   lowercaseSuffix: typeof opts.lowercaseSuffix === 'boolean' ?
     opts.lowercaseSuffix :

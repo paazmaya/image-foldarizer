@@ -72,11 +72,12 @@ image-foldarizer [options] <directory>
   -V, --version            Version number
   -v, --verbose            Verbose output, will print which file is currently being processed
   -n, --dry-run            Try it out without actually touching anything
+  -E, --skip-existing      Skip when the group directory already exists
   -l, --lowercase-suffix   Lowercase the resulting file suffixes, or use as is by default
   -i, --initial-character  Files are only processed if they start with a character, as oppose to a
                            number
 
-Version 1.0.0
+Version 2.0.0
 ```
 
 ## Contributing
