@@ -108,7 +108,7 @@ try {
 }
 catch (error) {
   console.error(`Directory "${directory}" does not exist`);
-  console.error();
+  console.error(error);
   process.exit(1);
 }
 
