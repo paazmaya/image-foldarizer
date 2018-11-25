@@ -8,8 +8,6 @@
 
 'use strict';
 
-const path = require('path');
-
 const tape = require('tape'),
   handleGroups = require('../../lib/handle-groups');
 
