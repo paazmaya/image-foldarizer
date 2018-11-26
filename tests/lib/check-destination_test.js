@@ -19,6 +19,7 @@ tape('checkDestination does not create directory when dry-run', (test) => {
 
   const options = {
     verbose: false,
+    skipExisting: true,
     dryRun: true
   };
   const directory = path.join(__dirname, '..', 'does-not-exist');
@@ -39,6 +40,7 @@ tape('checkDestination creates directory when does not exist', (test) => {
 
   const options = {
     verbose: true,
+    skipExisting: true,
     dryRun: false
   };
   const directory = path.join(__dirname, '..', 'does-not-exist');
@@ -60,6 +62,7 @@ tape('checkDestination does not like when directory exists and is not empty', (t
 
   const options = {
     verbose: true,
+    skipExisting: true,
     dryRun: false
   };
   const directory = path.join(__dirname, '..', 'fixtures');
@@ -75,6 +78,7 @@ tape('checkDestination likes when directory is empty', (test) => {
 
   const options = {
     verbose: false,
+    skipExisting: true,
     dryRun: false
   };
 
@@ -88,10 +92,25 @@ tape('checkDestination does not like when destination is not directory', (test) 
 
   const options = {
     verbose: false,
+    skipExisting: true,
     dryRun: false
   };
   const directory = path.join(__dirname, '..', 'index_test.js');
 
   const result = checkDestination(directory, options);
   test.notOk(result);
+});
+
+tape('checkDestination will accept files in destination if not skipping', (test) => {
+  test.plan(1);
+
+  const options = {
+    verbose: false,
+    skipExisting: false,
+    dryRun: false
+  };
+  const directory = path.join(__dirname, '..');
+
+  const result = checkDestination(directory, options);
+  test.ok(result);
 });

@@ -92,3 +92,29 @@ tape('handleGroups cannot really move non existing files', (test) => {
     test.pass('Threw an error');
   }
 });
+
+tape('handleGroups cannot find non existing target directory', (test) => {
+  test.plan(1);
+
+  const directory = 'not-anywhere-to-be-found';
+  const groups = {
+    'Lynx-in-a-Zoo': [
+      'Lynx-in-a-Zoo_1.JPG',
+      'Lynx-in-a-Zoo_2.jpg',
+      'Lynx-in-a-Zoo_3.jpg'
+    ]
+  };
+  const options = {
+    lowercaseSuffix: true,
+    verbose: true,
+    dryRun: false
+  };
+
+  try {
+    handleGroups(directory, groups, options);
+    test.fail('Did not throw');
+  }
+  catch (error) {
+    test.pass('Threw an error');
+  }
+});

@@ -99,7 +99,7 @@ Please make sure it is over 90% at all times.
 ## Version history
 
 * `v2.0.0` (2018-11-26)
-  - Allow group folder to exists #18 and avoid overwriting existing files
+  - Allow group folder to exists #18 and avoid overwriting existing files. Use `--skip-existing` command line option to use the earlier behaviour.
   - Use [`npm-shrinkwrap.json`](https://docs.npmjs.com/files/shrinkwrap.json) for locking the working set of 3rd party dependencies
 * `v1.0.0` (2018-11-09)
   - Minimum Node.js LTS version requirement increased from `6.9.5` to `8.11.1`
