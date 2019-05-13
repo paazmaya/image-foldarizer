@@ -98,6 +98,8 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
+* `v2.0.1` (2019-05-13)
+  - `npm-shrinkwrap.json` was not under version control
 * `v2.0.0` (2018-11-26)
   - Allow group folder to exists #18 and avoid overwriting existing files. Use `--skip-existing` command line option to use the earlier behaviour.
   - Use [`npm-shrinkwrap.json`](https://docs.npmjs.com/files/shrinkwrap.json) for locking the working set of 3rd party dependencies
