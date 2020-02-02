@@ -85,20 +85,11 @@ tape('cli does not move files when dry-run', (test) => {
 
 });
 
-tape('cli does not move files when dry-run and not verbose', (test) => {
-  test.plan(1);
-
-  execFile('node', [pkg.bin, '-ln', path.join(__dirname, 'fixtures')], null, (err, stdout, stderr) => {
-    test.equals(stdout.trim().length, 0);
-  });
-
-});
-
 tape('cli moves nothing since nothing found', (test) => {
   test.plan(1);
 
   execFile('node', [pkg.bin, '-liE', path.join(__dirname, '..')], null, (err, stdout, stderr) => {
-    test.equals(stdout.trim().length, 0);
+    test.equals(stdout.trim(), 'Moved total of 0 files');
   });
 
 });
@@ -107,7 +98,7 @@ tape('cli does not move files when just dry-run', (test) => {
   test.plan(1);
 
   execFile('node', [pkg.bin, '-n', path.join(__dirname, 'fixtures')], null, (err, stdout, stderr) => {
-    test.equals(stdout.trim().length, 0);
+    test.equals(stdout.trim(), 'Would have moved total of 4 files, but did not due to dry-run');
   });
 
 });

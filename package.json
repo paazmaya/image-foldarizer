@@ -1,6 +1,6 @@
 {
   "name": "image-foldarizer",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Take a flat directory of named image files that have some counter and place then in subdirectories",
   "homepage": "https://github.com/paazmaya/image-foldarizer",
   "main": "index.js",
@@ -11,8 +11,7 @@
     "coverage": "nyc --all --exclude tests report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "engines": {
-    "node": ">=10.13.0",
-    "npm": ">=5.0.0"
+    "node": ">=10.13.0"
   },
   "files": [
     "bin",
@@ -44,7 +43,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "optionator": "~0.8.2"
+    "optionator": "~0.8.3"
   },
   "devDependencies": {
     "codecov": "3.6.4",

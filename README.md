@@ -77,7 +77,7 @@ image-foldarizer [options] <directory>
   -i, --initial-character  Files are only processed if they start with a character, as oppose to a
                            number
 
-Version 2.0.0
+Version 3.0.0
 ```
 
 ## Contributing
@@ -98,6 +98,9 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
+* `v3.0.0` (2020-02-02)
+  - Minimum Node.js version lifted from `8.11.1` to `10.13.0`
+  - Now always printing the total number of files touched, verbose or not
 * `v2.0.1` (2019-05-13)
   - `npm-shrinkwrap.json` was not under version control
 * `v2.0.0` (2018-11-26)

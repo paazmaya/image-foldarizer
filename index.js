@@ -33,12 +33,10 @@ module.exports = (directory, options) => {
 
   const countFiles = handleGroups(directory, groups, options);
 
-  if (options.verbose) {
-    if (options.dryRun) {
-      console.log(`Would have moved total of ${countFiles} files, but did not due to dry-run`);
-    }
-    else {
-      console.log(`Moved total of ${countFiles} files`);
-    }
+  if (options.dryRun) {
+    console.log(`Would have moved total of ${countFiles} files, but did not due to dry-run`);
+  }
+  else {
+    console.log(`Moved total of ${countFiles} files`);
   }
 };
