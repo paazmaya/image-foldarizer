@@ -6,7 +6,7 @@
  * Licensed under the MIT license
  */
 
-'use strict';
+
 
 const tape = require('tape'),
   handleGroups = require('../../lib/handle-groups');

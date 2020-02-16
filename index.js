@@ -6,7 +6,6 @@
  * Licensed under the MIT license
  */
 
-'use strict';
 
 const getFiles = require('./lib/get-files'),
   getGroups = require('./lib/get-groups'),
