@@ -98,6 +98,8 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
+- Run tests also against Node.js version 14. Now versions 10 (Travis), 12 (AppVeyor), and 14 (Travis) of Node.js are covered
+
 * `v3.0.0` (2020-02-02)
   - Minimum Node.js version lifted from `8.11.1` to `10.13.0`
   - Now always printing the total number of files touched, verbose or not
