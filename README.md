@@ -73,11 +73,11 @@ image-foldarizer [options] <directory>
   -v, --verbose            Verbose output, will print which file is currently being processed
   -n, --dry-run            Try it out without actually touching anything
   -E, --skip-existing      Skip when the group directory already exists
-  -l, --lowercase-suffix   Lowercase the resulting file suffixes, or use as is by default
+  -k, --keep-suffix        Keep the original suffix, as default is to lowercase
   -i, --initial-character  Files are only processed if they start with a character, as oppose to a
                            number
 
-Version 3.0.0
+Version 4.0.0
 ```
 
 ## Contributing
@@ -98,8 +98,11 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
-- Run tests also against Node.js version 14. Now versions 10 (Travis), 12 (AppVeyor), and 14 (Travis) of Node.js are covered
-
+* `v4.0.0` (2020-08-23)
+  - Now the resulting filename has lowercase suffix by default
+  - Removed the option for lower casing resulting file suffix, `-l` and `--lowercase-suffix`
+  - Added the option to keep the original suffix via `-k` or `--keep-suffix`
+  - Run tests also against Node.js version 14. Now versions 10 (Travis), 12 (AppVeyor), and 14 (Travis) of Node.js are covered
 * `v3.0.0` (2020-02-02)
   - Minimum Node.js version lifted from `8.11.1` to `10.13.0`
   - Now always printing the total number of files touched, verbose or not

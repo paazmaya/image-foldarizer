@@ -6,8 +6,6 @@
  * Licensed under the MIT license
  */
 
-
-
 const path = require('path');
 
 const tape = require('tape'),
@@ -19,7 +17,6 @@ tape('moveFile will notice when target file exists', (test) => {
   const options = {
     verbose: false,
     dryRun: true,
-    lowercaseSuffix: true,
     initChar: false
   };
   const filepath = __filename;

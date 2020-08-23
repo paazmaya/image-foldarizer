@@ -6,8 +6,6 @@
  * Licensed under the MIT license
  */
 
-
-
 const tape = require('tape'),
   fileExists = require('../../lib/file-exists');
 

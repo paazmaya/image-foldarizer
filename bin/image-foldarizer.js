@@ -8,7 +8,6 @@
  * Licensed under the MIT license
  */
 
-
 const fs = require('fs'),
   path = require('path');
 
@@ -65,10 +64,10 @@ const optsParser = optionator({
       description: 'Skip when the group directory already exists'
     },
     {
-      option: 'lowercase-suffix',
-      alias: 'l',
+      option: 'keep-suffix',
+      alias: 'k',
       type: 'Boolean',
-      description: 'Lowercase the resulting file suffixes, or use as is by default'
+      description: 'Keep the original suffix, as default is to lowercase'
     },
     {
       option: 'initial-character',
@@ -128,8 +127,8 @@ foldarizer(directory, {
   skipExisting: typeof opts.skipExisting === 'boolean' ?
     opts.skipExisting :
     false,
-  lowercaseSuffix: typeof opts.lowercaseSuffix === 'boolean' ?
-    opts.lowercaseSuffix :
+  keepSuffix: typeof opts.keepSuffix === 'boolean' ?
+    opts.keepSuffix :
     false,
   initChar: typeof opts.initialCharacter === 'boolean' ?
     opts.initialCharacter :

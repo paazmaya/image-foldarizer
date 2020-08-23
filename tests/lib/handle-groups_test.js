@@ -6,8 +6,6 @@
  * Licensed under the MIT license
  */
 
-
-
 const tape = require('tape'),
   handleGroups = require('../../lib/handle-groups');
 
@@ -17,7 +15,7 @@ tape('handleGroups does nothing when groups is empty', (test) => {
   const directory = __dirname;
   const groups = {};
   const options = {
-    lowercaseSuffix: false,
+    keepSuffix: true,
     verbose: false,
     dryRun: false
   };
@@ -35,7 +33,7 @@ tape('handleGroups increments when group is not existing and dry running', (test
     'does-not-exist': ['not-here.txt']
   };
   const options = {
-    lowercaseSuffix: false,
+    keepSuffix: true,
     verbose: false,
     dryRun: true
   };
@@ -57,7 +55,6 @@ tape('handleGroups would moves files when needed', (test) => {
     ]
   };
   const options = {
-    lowercaseSuffix: true,
     verbose: true,
     dryRun: true
   };
@@ -79,7 +76,6 @@ tape('handleGroups cannot really move non existing files', (test) => {
     ]
   };
   const options = {
-    lowercaseSuffix: true,
     verbose: true,
     dryRun: false
   };
@@ -105,7 +101,6 @@ tape('handleGroups cannot find non existing target directory', (test) => {
     ]
   };
   const options = {
-    lowercaseSuffix: true,
     verbose: true,
     dryRun: false
   };
