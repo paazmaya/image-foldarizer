@@ -6,8 +6,6 @@
  * Licensed under the MIT license
  */
 
-
-
 const fs = require('fs'),
   path = require('path'),
   execFile = require('child_process').execFile;
@@ -79,7 +77,7 @@ tape('cli should complain when directory does not exist', (test) => {
 tape('cli does not move files when dry-run', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-vln', path.join(__dirname, 'fixtures')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin, '-vn', path.join(__dirname, 'fixtures')], null, (err, stdout, stderr) => {
     test.ok(stdout.trim().indexOf('Would have moved total of ') !== -1);
   });
 
@@ -88,7 +86,7 @@ tape('cli does not move files when dry-run', (test) => {
 tape('cli moves nothing since nothing found', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-liE', path.join(__dirname, '..')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin, '-iE', path.join(__dirname, '..')], null, (err, stdout, stderr) => {
     test.equals(stdout.trim(), 'Moved total of 0 files');
   });
 

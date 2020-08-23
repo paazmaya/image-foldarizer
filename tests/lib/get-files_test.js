@@ -22,7 +22,7 @@ tape('getFiles with all options set to false as are defaults', (test) => {
 
   const result = getFiles(path.join(__dirname, '..', 'fixtures'), options);
 
-  test.equal(result.length, 8);
+  test.equal(result.length, 9);
 });
 
 tape('getFiles with only files not starting with a number', (test) => {
@@ -36,5 +36,5 @@ tape('getFiles with only files not starting with a number', (test) => {
 
   const result = getFiles(path.join(__dirname, '..', 'fixtures'), options);
 
-  test.equal(result.length, 7);
+  test.equal(result.length, 8);
 });
