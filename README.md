@@ -98,6 +98,9 @@ Please make sure it is over 90% at all times.
 
 ## Version history
 
+* `v4.xx` (2021-02-)
+  - Need to migrate all but one test execution away from Travis CI due to free account limitations
+  - Now using GitHub Actions to execute tests with Node.js v14
 * `v4.0.0` (2020-08-23)
   - Now the resulting filename has lowercase suffix by default
   - Removed the option for lower casing resulting file suffix, `-l` and `--lowercase-suffix`
