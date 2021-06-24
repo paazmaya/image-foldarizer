@@ -9,7 +9,7 @@
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpaazmaya%2Fimage-foldarizer.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpaazmaya%2Fimage-foldarizer?ref=badge_shield)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=paazmaya_image-foldarizer&metric=code_smells)](https://sonarcloud.io/dashboard?id=paazmaya_image-foldarizer)
 
-Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `10.13.0`, which is [the active Long Term Support (LTS) version](https://github.com/nodejs/Release#release-schedule).
+Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `14.15.0`, which is [the active Long Term Support (LTS) version](https://github.com/nodejs/Release#release-schedule).
 
 ## Purpose
 
