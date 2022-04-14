@@ -8,7 +8,9 @@
 
 const fs = require('fs'),
   path = require('path'),
-  execFile = require('child_process').execFile;
+  {
+    execFile
+  } = require('child_process');
 
 const tape = require('tape');
 

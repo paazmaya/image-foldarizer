@@ -1,5 +1,11 @@
 {
-  "extends": "paazmaya",
+  "extends": [
+    "paazmaya",
+    "plugin:node/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "rules": {
     "max-lines-per-function": ["warn", 24],
     "no-console": 0,
