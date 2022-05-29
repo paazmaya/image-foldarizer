@@ -3,7 +3,9 @@
 This changelog covers the version history and possible upcoming changes.
 It follows the guidance from https://keepachangelog.com/en/1.0.0/.
 
-## Unreleased `v4.xx` (2021-07-)
+## Unreleased
+
+## `v5.0.0` (2022-05-29)
 - Need to migrate all but one test execution away from Travis CI due to free account limitations
 - Now using GitHub Actions to execute tests with Node.js v14
 - Minimum supported Node.js version lifted from `10.13.0` to `14.15.0`
