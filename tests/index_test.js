@@ -6,8 +6,8 @@
  * Licensed under the MIT license
  */
 
-const tape = require('tape'),
-  foldarizer = require('../index');
+import tape from 'tape';
+import foldarizer from '../index.js';
 
 tape('a function with two parameters is exported', (test) => {
   test.plan(2);

@@ -6,13 +6,13 @@
  * Licensed under the MIT license
  */
 
-const tape = require('tape'),
-  handleGroups = require('../../lib/handle-groups');
+import tape from 'tape';
+import handleGroups from '../../lib/handle-groups.js';
 
 tape('handleGroups does nothing when groups is empty', (test) => {
   test.plan(1);
 
-  const directory = __dirname;
+  const directory = 'tests';
   const groups = {};
   const options = {
     keepSuffix: true,
@@ -28,7 +28,7 @@ tape('handleGroups does nothing when groups is empty', (test) => {
 tape('handleGroups increments when group is not existing and dry running', (test) => {
   test.plan(1);
 
-  const directory = __dirname;
+  const directory = 'tests';
   const groups = {
     'does-not-exist': ['not-here.txt']
   };
@@ -46,7 +46,7 @@ tape('handleGroups increments when group is not existing and dry running', (test
 tape('handleGroups would moves files when needed', (test) => {
   test.plan(1);
 
-  const directory = __dirname;
+  const directory = 'tests';
   const groups = {
     'Lynx-in-a-Zoo': [
       'Lynx-in-a-Zoo_1.JPG',
@@ -67,7 +67,7 @@ tape('handleGroups would moves files when needed', (test) => {
 tape('handleGroups cannot really move non existing files', (test) => {
   test.plan(1);
 
-  const directory = __dirname;
+  const directory = 'tests';
   const groups = {
     'Lynx-in-a-Zoo': [
       'Lynx-in-a-Zoo_1.JPG',

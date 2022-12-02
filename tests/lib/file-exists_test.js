@@ -6,8 +6,8 @@
  * Licensed under the MIT license
  */
 
-const tape = require('tape'),
-  fileExists = require('../../lib/file-exists');
+import tape from 'tape';
+import fileExists from '../../lib/file-exists.js';
 
 tape('fileExists not existing', (test) => {
   test.plan(1);
@@ -20,7 +20,7 @@ tape('fileExists not existing', (test) => {
 tape('fileExists is there', (test) => {
   test.plan(1);
 
-  const result = fileExists(__filename);
+  const result = fileExists('package.json');
 
   test.ok(result);
 });

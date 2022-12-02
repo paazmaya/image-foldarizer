@@ -6,10 +6,9 @@
  * Licensed under the MIT license
  */
 
-
-const getFiles = require('./lib/get-files'),
-  getGroups = require('./lib/get-groups'),
-  handleGroups = require('./lib/handle-groups');
+import getFiles from './lib/get-files.js';
+import getGroups from './lib/get-groups.js';
+import handleGroups from './lib/handle-groups.js';
 
 /**
  * @param {string} directory  Root directory in which images should be
@@ -22,7 +21,7 @@ const getFiles = require('./lib/get-files'),
  *
  * @returns {void}
  */
-module.exports = (directory, options) => {
+export default (directory, options) => {
   const files = getFiles(directory, options),
     groups = getGroups(files);
 

@@ -6,8 +6,8 @@
  * Licensed under the MIT license
  */
 
-const tape = require('tape'),
-  getGroups = require('../../lib/get-groups');
+import tape from 'tape';
+import getGroups from '../../lib/get-groups.js';
 
 tape('getGroups gets groups of given list', (test) => {
   test.plan(1);

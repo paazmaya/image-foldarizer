@@ -6,15 +6,15 @@
  * Licensed under the MIT license
  */
 
-const fs = require('fs'),
-  path = require('path'),
-  {
-    execFile
-  } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import {
+  execFile
+} from 'child_process';
 
-const tape = require('tape');
+import tape from 'tape';
 
-const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
+import pkg from '../package.json' assert { type: 'json' };
 
 tape('cli should output version number', (test) => {
   test.plan(1);
@@ -43,21 +43,6 @@ tape('cli should output help when requested', (test) => {
 
 });
 
-tape('cli should complain when package.json is gone', (test) => {
-  test.plan(1);
-
-  const nameFrom = 'package.json',
-    nameTo = '_package.json';
-
-  fs.renameSync(nameFrom, nameTo);
-
-  execFile('node', [pkg.bin, '-h'], null, (err, stdout, stderr) => {
-    test.ok(stderr.trim().indexOf('Could not read') !== -1, 'Complaint seen');
-    fs.renameSync(nameTo, nameFrom);
-  });
-
-});
-
 tape('cli should complain when non existing option used', (test) => {
   test.plan(1);
 
@@ -79,7 +64,7 @@ tape('cli should complain when directory does not exist', (test) => {
 tape('cli does not move files when dry-run', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-vn', path.join(__dirname, 'fixtures')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin, '-vn', path.join('tests', 'fixtures')], null, (err, stdout, stderr) => {
     test.ok(stdout.trim().indexOf('Would have moved total of ') !== -1);
   });
 
@@ -88,7 +73,7 @@ tape('cli does not move files when dry-run', (test) => {
 tape('cli moves nothing since nothing found', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-iE', path.join(__dirname, '..')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin, '-iE', path.join('tests', '..')], null, (err, stdout, stderr) => {
     test.equals(stdout.trim(), 'Moved total of 0 files');
   });
 
@@ -97,7 +82,7 @@ tape('cli moves nothing since nothing found', (test) => {
 tape('cli does not move files when just dry-run', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-n', path.join(__dirname, 'fixtures')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin, '-n', path.join('tests', 'fixtures')], null, (err, stdout, stderr) => {
     test.equals(stdout.trim(), 'Would have moved total of 4 files, but did not due to dry-run');
   });
 

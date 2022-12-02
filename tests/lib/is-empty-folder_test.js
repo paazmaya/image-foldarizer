@@ -6,10 +6,10 @@
  * Licensed under the MIT license
  */
 
-const fs = require('fs');
+import fs from 'fs';
 
-const tape = require('tape'),
-  isEmptyFolder = require('../../lib/is-empty-folder');
+import tape from 'tape';
+import isEmptyFolder from '../../lib/is-empty-folder.js';
 
 tape('isEmptyFolder knows when empty', (test) => {
   test.plan(1);

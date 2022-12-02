@@ -6,11 +6,11 @@
  * Licensed under the MIT license
  */
 
-const fs = require('fs'),
-  path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const tape = require('tape'),
-  checkDestination = require('../../lib/check-destination');
+import tape from 'tape';
+import checkDestination from '../../lib/check-destination.js';
 
 tape('checkDestination does not create directory when dry-run', (test) => {
   test.plan(2);
@@ -20,7 +20,7 @@ tape('checkDestination does not create directory when dry-run', (test) => {
     skipExisting: true,
     dryRun: true
   };
-  const directory = path.join(__dirname, '..', 'does-not-exist');
+  const directory = path.join('tests', '..', 'does-not-exist');
 
   const result = checkDestination(directory, options);
   test.ok(result);
@@ -41,7 +41,7 @@ tape('checkDestination creates directory when does not exist', (test) => {
     skipExisting: true,
     dryRun: false
   };
-  const directory = path.join(__dirname, '..', 'does-not-exist');
+  const directory = path.join('tests', '..', 'does-not-exist');
 
   const result = checkDestination(directory, options);
   test.ok(result);
@@ -63,7 +63,7 @@ tape('checkDestination does not like when directory exists and is not empty', (t
     skipExisting: true,
     dryRun: false
   };
-  const directory = path.join(__dirname, '..', 'fixtures');
+  const directory = path.join('tests', 'fixtures');
 
   const result = checkDestination(directory, options);
   test.notOk(result);
@@ -71,7 +71,7 @@ tape('checkDestination does not like when directory exists and is not empty', (t
 
 tape('checkDestination likes when directory is empty', (test) => {
   test.plan(1);
-  const directory = path.join(__dirname, 'temporary-empty-dir');
+  const directory = path.join('tests', 'temporary-empty-dir');
   fs.mkdirSync(directory);
 
   const options = {
@@ -93,7 +93,7 @@ tape('checkDestination does not like when destination is not directory', (test) 
     skipExisting: true,
     dryRun: false
   };
-  const directory = path.join(__dirname, '..', 'index_test.js');
+  const directory = path.join('tests', 'index_test.js');
 
   const result = checkDestination(directory, options);
   test.notOk(result);
@@ -107,7 +107,7 @@ tape('checkDestination will accept files in destination if not skipping', (test)
     skipExisting: false,
     dryRun: false
   };
-  const directory = path.join(__dirname, '..');
+  const directory = path.join('tests', '..');
 
   const result = checkDestination(directory, options);
   test.ok(result);

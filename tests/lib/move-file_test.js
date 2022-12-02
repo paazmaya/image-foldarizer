@@ -6,10 +6,10 @@
  * Licensed under the MIT license
  */
 
-const path = require('path');
+import path from 'path';
 
-const tape = require('tape'),
-  moveFile = require('../../lib/move-file');
+import tape from 'tape';
+import moveFile from '../../lib/move-file.js';
 
 tape('moveFile will notice when target file exists', (test) => {
   test.plan(1);
@@ -19,8 +19,8 @@ tape('moveFile will notice when target file exists', (test) => {
     dryRun: true,
     initChar: false
   };
-  const filepath = __filename;
-  const targetDir = __dirname;
+  const filepath = 'move-file_test.js';
+  const targetDir = 'tests';
 
   const result = moveFile(filepath, targetDir, options);
 
@@ -36,7 +36,7 @@ tape('moveFile keeps file suffix uppercase', (test) => {
     keepSuffix: true
   };
   const filepath = 'tests/fixtures/UPPERCASE.FILESUFFIX';
-  const targetDir = __dirname;
+  const targetDir = 'tests';
 
   const result = moveFile(filepath, targetDir, options);
 
@@ -51,7 +51,7 @@ tape('moveFile lowercases file suffix by default', (test) => {
     dryRun: true
   };
   const filepath = 'tests/fixtures/UPPERCASE.FILESUFFIX';
-  const targetDir = __dirname;
+  const targetDir = 'tests';
 
   const result = moveFile(filepath, targetDir, options);
 

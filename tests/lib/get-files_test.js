@@ -6,10 +6,10 @@
  * Licensed under the MIT license
  */
 
-const path = require('path');
+import path from 'path';
 
-const tape = require('tape'),
-  getFiles = require('../../lib/get-files');
+import tape from 'tape';
+import getFiles from '../../lib/get-files.js';
 
 tape('getFiles with all options set to false as are defaults', (test) => {
   test.plan(1);
@@ -20,7 +20,7 @@ tape('getFiles with all options set to false as are defaults', (test) => {
     initChar: false
   };
 
-  const result = getFiles(path.join(__dirname, '..', 'fixtures'), options);
+  const result = getFiles(path.join('tests', 'fixtures'), options);
 
   test.equal(result.length, 9);
 });
@@ -34,7 +34,7 @@ tape('getFiles with only files not starting with a number', (test) => {
     initChar: true
   };
 
-  const result = getFiles(path.join(__dirname, '..', 'fixtures'), options);
+  const result = getFiles(path.join('tests', 'fixtures'), options);
 
   test.equal(result.length, 8);
 });
