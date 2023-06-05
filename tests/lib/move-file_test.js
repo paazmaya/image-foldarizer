@@ -20,7 +20,7 @@ tape('moveFile will notice when target file exists', (test) => {
     initChar: false
   };
   const filepath = 'move-file_test.js';
-  const targetDir = 'tests';
+  const targetDir = 'tests/lib';
 
   const result = moveFile(filepath, targetDir, options);
 
