@@ -5,6 +5,8 @@ It follows the guidance from https://keepachangelog.com/en/1.0.0/.
 
 ## Unreleased
 
+- Minimum supported Node.js version lifted from `14.15.0` to `18.12.0`
+
 ## `v5.0.1` (2023-06-05)
 
 - It's all ES Modules now
