@@ -5,7 +5,9 @@
   "homepage": "https://github.com/paazmaya/image-foldarizer",
   "main": "index.js",
   "type": "module",
-  "bin": "bin/image-foldarizer.js",
+  "bin": {
+    "image-foldarizer": "bin/image-foldarizer.js"
+  },
   "scripts": {
     "lint": "eslint *.js bin lib",
     "test": "c8 --exclude tests tape tests/*_test.js tests/lib/*_test.js && rm -rf tmp",
@@ -37,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:paazmaya/image-foldarizer.git"
+    "url": "git+ssh://git@github.com/paazmaya/image-foldarizer.git"
   },
   "bugs": {
     "url": "https://github.com/paazmaya/image-foldarizer/issues"
