@@ -21,7 +21,7 @@ const pkg = JSON.parse(fs.readFileSync(packageFile, 'utf8'));
 tape('cli should output version number', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-V'], null, (err, stdout) => {
+  execFile('node', [pkg.bin[pkg.name], '-V'], null, (err, stdout) => {
     test.equals(stdout.trim(), pkg.version, 'Version is the same as in package.json');
   });
 
@@ -30,7 +30,7 @@ tape('cli should output version number', (test) => {
 tape('cli should output help by default', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin], null, (err, stdout) => {
+  execFile('node', [pkg.bin[pkg.name]], null, (err, stdout) => {
     test.ok(stdout.trim().indexOf('image-foldarizer [options] <directory>') !== -1, 'Help appeared');
   });
 
@@ -39,7 +39,7 @@ tape('cli should output help by default', (test) => {
 tape('cli should output help when requested', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '--help'], null, (err, stdout) => {
+  execFile('node', [pkg.bin[pkg.name], '--help'], null, (err, stdout) => {
     test.ok(stdout.trim().indexOf('image-foldarizer [options] <directory>') !== -1, 'Help appeared');
   });
 
@@ -48,7 +48,7 @@ tape('cli should output help when requested', (test) => {
 tape('cli should complain when non existing option used', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-g'], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin[pkg.name], '-g'], null, (err, stdout, stderr) => {
     test.ok(stderr.trim().indexOf('Invalid option ') !== -1, 'Complaint seen');
   });
 
@@ -57,7 +57,7 @@ tape('cli should complain when non existing option used', (test) => {
 tape('cli should complain when directory does not exist', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, 'not-here'], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin[pkg.name], 'not-here'], null, (err, stdout, stderr) => {
     test.ok(stderr.trim().indexOf('Directory "') === 0, 'Complaint seen');
   });
 
@@ -66,7 +66,7 @@ tape('cli should complain when directory does not exist', (test) => {
 tape('cli does not move files when dry-run', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-vn', path.join('tests', 'fixtures')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin[pkg.name], '-vn', path.join('tests', 'fixtures')], null, (err, stdout, stderr) => {
     test.ok(stdout.trim().indexOf('Would have moved total of ') !== -1);
   });
 
@@ -75,7 +75,7 @@ tape('cli does not move files when dry-run', (test) => {
 tape('cli moves nothing since nothing found', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-iE', path.join('tests', '..')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin[pkg.name], '-iE', path.join('tests', '..')], null, (err, stdout, stderr) => {
     test.equals(stdout.trim(), 'Moved total of 0 files');
   });
 
@@ -84,7 +84,7 @@ tape('cli moves nothing since nothing found', (test) => {
 tape('cli does not move files when just dry-run', (test) => {
   test.plan(1);
 
-  execFile('node', [pkg.bin, '-n', path.join('tests', 'fixtures')], null, (err, stdout, stderr) => {
+  execFile('node', [pkg.bin[pkg.name], '-n', path.join('tests', 'fixtures')], null, (err, stdout, stderr) => {
     test.equals(stdout.trim(), 'Would have moved total of 4 files, but did not due to dry-run');
   });
 
