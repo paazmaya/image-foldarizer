@@ -28,7 +28,7 @@ tape('checkDestination does not create directory when dry-run', (test) => {
     fs.accessSync(directory);
     test.fail('Directory was created');
   }
-  catch (error) {
+  catch {
     test.pass('Directory not created');
   }
 });
@@ -50,7 +50,7 @@ tape('checkDestination creates directory when does not exist', (test) => {
     test.pass('Directory was created');
     fs.rmdirSync(directory); // Clean up after.
   }
-  catch (error) {
+  catch {
     test.fail('Directory not created');
   }
 });

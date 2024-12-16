@@ -84,7 +84,7 @@ tape('handleGroups cannot really move non existing files', (test) => {
     handleGroups(directory, groups, options);
     test.fail('Did not throw');
   }
-  catch (error) {
+  catch {
     test.pass('Threw an error');
   }
 });
@@ -109,7 +109,7 @@ tape('handleGroups cannot find non existing target directory', (test) => {
     handleGroups(directory, groups, options);
     test.fail('Did not throw');
   }
-  catch (error) {
+  catch {
     test.pass('Threw an error');
   }
 });
