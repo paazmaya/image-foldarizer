@@ -75,7 +75,7 @@ image-foldarizer [options] <directory>
   -k, --keep-suffix        Keep the original suffix, as default is to lowercase
   -i, --initial-character  Files are only processed if they start with a character, as oppose to a number
 
-Version 5.0.1
+Version 6.0.0
 ```
 
 ## Contributing
