@@ -14,9 +14,15 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22.x'
-    - run: npm ci
-    - run: npm run lint
-    - run: npm run coverage
+
+    - name: Install Node.js dependencies
+      run: npm ci
+
+    - name: Lint and test
+      run: |
+        npm run lint
+        npm test
+        npm run coverage
 
     - name: Upload code coverage to codecov
       # https://github.com/marketplace/actions/codecov
