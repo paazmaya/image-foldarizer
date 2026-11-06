@@ -82,7 +82,7 @@ Version 6.0.0
 
 First thing to do is to file [an issue](https://github.com/paazmaya/image-foldarizer/issues).
 Then possibly open a Pull Request for solving the given issue.
-[ESLint](http://eslint.org/) is used for linting the code, please use it by doing:
+[Oxlint](https://oxc.rs/docs/guide/usage/linter.html) is used for linting the code, please use it by doing:
 
 ```sh
 npm install
@@ -90,7 +90,7 @@ npm run lint
 ```
 
 Unit tests are written with [`tape`](https://github.com/substack/tape) and can be executed with `npm test`.
-Code coverage is inspected with [`nyc`](https://github.com/istanbuljs/nyc) and
+Code coverage is inspected with [`c8`](https://github.com/bcoe/c8) and
 can be executed with `npm run coverage` after running `npm test`.
 Please make sure it is over 90% at all times.
 
