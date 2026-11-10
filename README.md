@@ -2,7 +2,6 @@
 
 > Take a flat directory of named image files that have some counter and place then in subdirectories
 
-[![Windows build status](https://ci.appveyor.com/api/projects/status/d61hp15tmxnk6cfj/branch/main?svg=true)](https://ci.appveyor.com/project/paazmaya/image-foldarizer/branch/main)
 [![Node.js CI](https://github.com/paazmaya/image-foldarizer/actions/workflows/linting-and-unit-testing.yml/badge.svg)](https://github.com/paazmaya/image-foldarizer/actions/workflows/linting-and-unit-testing.yml)
 [![codecov](https://codecov.io/gh/paazmaya/image-foldarizer/branch/main/graph/badge.svg)](https://codecov.io/gh/paazmaya/image-foldarizer)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpaazmaya%2Fimage-foldarizer.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpaazmaya%2Fimage-foldarizer?ref=badge_shield)
