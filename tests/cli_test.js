@@ -89,3 +89,12 @@ tape('cli does not move files when just dry-run', (test) => {
   });
 
 });
+
+tape('cli runs with keep-suffix and verbose flags', (test) => {
+  test.plan(2);
+
+  execFile('node', [pkg.bin[pkg.name], '-n', '-k', '-v', path.join('tests', 'fixtures')], null, (err, stdout) => {
+    test.notOk(err, 'Runs without error');
+    test.ok(stdout.includes('Would have moved total of 4 files'), 'Output indicates files would move');
+  });
+});
